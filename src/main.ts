@@ -39,6 +39,7 @@ import daylight from "./themes/daylight.css?inline";
 import sepia from "./themes/sepia.css?inline";
 import nocturne from "./themes/nocturne.css?inline";
 import slate from "./themes/slate.css?inline";
+import gothic from "./themes/gothic.css?inline";
 
 // ---------------------------------------------------------------- state
 
@@ -451,7 +452,7 @@ async function withPrintView<T>(fn: () => Promise<T>): Promise<T> {
 async function exportHtml(withTheme = true) {
   const path = await save({ defaultPath: `${exportBase()}.html`, filters: [{ name: "HTML", extensions: ["html", "htm"] }] });
   if (!path) return;
-  const css = withTheme ? `${themeCss(currentTheme)}\n${docCss}` : "";
+  const css = withTheme ? `${docCss}\n${themeCss(currentTheme)}` : "";
   try {
     await invoke("export_html", {
       markdown: currentMarkdown(),
@@ -494,6 +495,7 @@ const builtinThemes: Theme[] = [
   { name: "Sepia", css: sepia, builtin: true },
   { name: "Nocturne", css: nocturne, builtin: true },
   { name: "Slate", css: slate, builtin: true },
+  { name: "Gothic", css: gothic, builtin: true },
 ];
 let themes: Theme[] = [...builtinThemes];
 let currentTheme = "Daylight";
@@ -505,7 +507,9 @@ function themeCss(name: string) {
 function applyTheme(name: string) {
   if (!themes.some((t) => t.name === name)) name = "Daylight";
   currentTheme = name;
-  $("theme").textContent = themeCss(name);
+  const el = $("theme");
+  el.textContent = themeCss(name);
+  document.head.appendChild(el); // keep theme rules after the base stylesheets so they can override layout
   try { localStorage.setItem("theme", name); } catch { /* ignore */ }
 }
 

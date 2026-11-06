@@ -15,7 +15,7 @@ an original implementation: no Typora code, styles or assets are used.
 - **Math**: inline `$…$` and block `$$…$$`, rendered with KaTeX.
 - **Images**: relative and absolute local paths, URLs, drag-and-drop, Insert Image (`⇧⌘I`), and paste
   from the clipboard. Pasted and uploaded images are saved to `assets/` next to the document.
-- **Themes**: Daylight, Sepia, Nocturne (dark) and Slate are built in. To add your own, drop `.css` files
+- **Themes**: Daylight, Sepia, Nocturne (dark), Slate and Gothic are built in. To add your own, drop `.css` files
   into the theme folder (Themes ▸ Open Theme Folder), then choose Themes ▸ Reload Themes.
 - **Print** (`⌘P`) and **PDF export** (`⌥⌘P`). On macOS the PDF is paginated and written directly by
   WebKit; on other platforms you finish through the print dialog. Dark themes print in a light palette.
@@ -32,7 +32,8 @@ markit notes.md --export-pdf notes.pdf   # render to PDF and quit (macOS)
 
 ## Writing a theme
 
-A theme only sets CSS variables. The shared document stylesheet ([src/doc.css](src/doc.css)) does the
+A theme mostly sets CSS variables. It can also add layout rules that target
+`:is(.milkdown .ProseMirror, .md-static)` (see [src/themes/gothic.css](src/themes/gothic.css)). The shared document stylesheet ([src/doc.css](src/doc.css)) does the
 rest, so themes apply the same way in the editor, in print/PDF, and in HTML export.
 
 ```css
@@ -61,8 +62,12 @@ npx tauri dev
 ```
 
 ```bash
-npx tauri build
+npm run dist
 ```
+
+That command builds `src-tauri/target/release/bundle/macos/Markit.app` and a DMG in
+`src-tauri/target/release/bundle/dmg/`. The app is ad-hoc signed, so it runs on the machine that
+built it. To distribute it to other Macs, sign it with a Developer ID and notarize it.
 
 Tests:
 

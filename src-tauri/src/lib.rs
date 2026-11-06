@@ -14,7 +14,7 @@ use tauri::{
 
 mod export;
 
-const BUILTIN_THEMES: &[&str] = &["Daylight", "Sepia", "Nocturne", "Slate"];
+const BUILTIN_THEMES: &[&str] = &["Daylight", "Sepia", "Nocturne", "Slate", "Gothic"];
 const IMAGE_EXT: &[&str] = &["png", "jpg", "jpeg", "gif", "webp", "svg", "bmp", "avif", "ico", "tif", "tiff"];
 
 #[derive(Default)]

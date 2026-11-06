@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "tauri": "tauri"
+    "tauri": "tauri",
+    "dist": "tauri build && sh scripts/make-dmg.sh"
   },
   "dependencies": {
     "@milkdown/crepe": "^7.23.0",
