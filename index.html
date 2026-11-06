@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markit</title>
+    <style id="theme"></style>
+  </head>
+  <body>
+    <div id="app">
+      <aside id="sidebar" class="no-print">
+        <div class="side-tabs">
+          <button data-tab="outline" class="active">Outline</button>
+          <button data-tab="recent">Recent</button>
+        </div>
+        <nav id="outline" class="side-panel"></nav>
+        <nav id="recent" class="side-panel hidden"></nav>
+      </aside>
+      <main id="main">
+        <div id="scroller">
+          <div id="editor" class="md-doc"></div>
+          <textarea id="source" class="hidden" spellcheck="false"></textarea>
+        </div>
+        <footer id="status" class="no-print">
+          <span id="status-file">Untitled</span>
+          <span class="spacer"></span>
+          <span id="status-mode"></span>
+          <span id="status-count"></span>
+        </footer>
+      </main>
+    </div>
+    <div id="toast" class="no-print"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
