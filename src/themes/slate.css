@@ -1,0 +1,17 @@
+/* Slate — cool grey, editorial headings */
+:root {
+  --md-bg: #fbfcfd; --md-fg: #2d3748; --md-heading: #1a202c; --md-muted: #64748b;
+  --md-surface: #f1f5f9; --md-surface-low: #e2e8f0; --md-border: #cbd5e1; --md-border-soft: #e2e8f0;
+  --md-accent: #0d9488; --md-link: #0f766e; --md-code-fg: #be185d; --md-code-bg: #f1f5f9;
+  --md-hover: #eef2f7; --md-selection: #c7f0ea; --md-table-stripe: #f8fafc; --md-mark: #fde68a;
+  --md-font-body: "Avenir Next", Avenir, "Segoe UI", Helvetica, Arial, sans-serif;
+  --md-font-heading: "Charter", "Bitstream Charter", Georgia, serif;
+  --md-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  --chrome-bg: #eef2f6; --chrome-fg: #475569; --chrome-border: #dbe2ea;
+}
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #7c3aed; --md-syn-string: #0f766e; --md-syn-number: #c2410c; --md-syn-comment: #94a3b8;
+  --md-syn-definition: #2563eb; --md-syn-type: #b45309; --md-syn-property: #be185d; --md-syn-variable: #be185d;
+}

@@ -1,0 +1,19 @@
+/* Nocturne — dark, low-glare */
+:root {
+  --md-bg: #1e2127; --md-fg: #d4d8de; --md-heading: #f0f2f5; --md-muted: #9aa3ad;
+  --md-surface: #262a31; --md-surface-low: #2e333b; --md-border: #3a404a; --md-border-soft: #323741;
+  --md-accent: #7aa2f7; --md-link: #82aaff; --md-code-fg: #f6a38e; --md-code-bg: #2a2e36;
+  --md-hover: #2c3139; --md-selection: #36486b; --md-table-stripe: #22262c; --md-mark: #6b5b1f;
+  --md-font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --md-font-heading: var(--md-font-body);
+  --md-font-mono: "SF Mono", Menlo, Consolas, monospace;
+  --chrome-bg: #181a1f; --chrome-fg: #9aa3ad; --chrome-border: #2b2f36;
+  color-scheme: dark;
+}
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #c792ea; --md-syn-string: #c3e88d; --md-syn-number: #f78c6c; --md-syn-comment: #697282;
+  --md-syn-definition: #82aaff; --md-syn-type: #ffcb6b; --md-syn-property: #89ddff; --md-syn-variable: #f07178;
+  --md-syn-invalid: #ff5370;
+}

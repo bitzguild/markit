@@ -1,0 +1,19 @@
+/* Sepia — warm paper, serif reading type */
+:root {
+  --md-bg: #f8f1e3; --md-fg: #3b3127; --md-heading: #2a2119; --md-muted: #7a6a58;
+  --md-surface: #efe5d2; --md-surface-low: #e6d9c2; --md-border: #d8c7a9; --md-border-soft: #e4d6bd;
+  --md-accent: #b5763a; --md-link: #9a4f12; --md-code-fg: #8b3a1a; --md-code-bg: #efe4cf;
+  --md-hover: #ecdfc8; --md-selection: #e8cf9f; --md-table-stripe: #f3e9d7; --md-mark: #f5d97a;
+  --md-quote-bg: #f2e8d5;
+  --md-font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --md-font-heading: "Iowan Old Style", Palatino, Georgia, serif;
+  --md-font-mono: "SF Mono", Menlo, Consolas, monospace;
+  --md-font-size: 17px; --md-line-height: 1.72; --md-measure: 760px;
+  --chrome-bg: #efe6d4; --chrome-fg: #6b5a46; --chrome-border: #dccbad;
+}
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #8c3b6e; --md-syn-string: #5f7a1f; --md-syn-number: #a5520f; --md-syn-comment: #a39279;
+  --md-syn-definition: #2f5f8a; --md-syn-type: #8a6a10; --md-syn-property: #9a4f12; --md-syn-variable: #9a4f12;
+}

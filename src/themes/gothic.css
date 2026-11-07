@@ -1,0 +1,94 @@
+/*
+ * Gothic — geometric sans on bright paper. Centered, uppercase title
+ * headings, hairline rules, and deep-red links.
+ * (Inspired by the look of Typora's "Gothic" theme; written from scratch.)
+ */
+:root {
+  --md-bg: #fcfcfc; --md-fg: #111; --md-heading: #111; --md-muted: #6f6f6f;
+  --md-surface: #f6f6f6; --md-surface-low: #ededed; --md-border: #d6d6d6; --md-border-soft: #e6e6e6;
+  --md-accent: #990000; --md-link: #990000; --md-code-fg: #333; --md-code-bg: transparent;
+  --md-hover: #f1f1f1; --md-selection: #e9d6d6; --md-table-stripe: transparent; --md-mark: #f3e3a0;
+  --md-font-body: "Century Gothic", "TeX Gyre Adventor", TeXGyreAdventor, "URW Gothic", "URW Gothic L",
+    Futura, "Avenir Next", "Didact Gothic", "Segoe UI", sans-serif;
+  --md-font-heading: var(--md-font-body);
+  --md-font-mono: "SF Mono", Menlo, Consolas, monospace;
+  --md-font-size: 16px; --md-line-height: 1.75; --md-measure: 860px;
+  --chrome-bg: #f3f3f3; --chrome-fg: #777; --chrome-border: #e4e4e4;
+}
+
+/* Headings: light weight throughout; H1/H2 are centered, spaced capitals. */
+:is(.milkdown .ProseMirror, .md-static) :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 400;
+  border-bottom: 0;
+  padding-bottom: 0;
+  letter-spacing: 0.01em;
+}
+:is(.milkdown .ProseMirror, .md-static) h1 {
+  font-size: 2.6em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  margin: 1.6em 0 1em;
+}
+:is(.milkdown .ProseMirror, .md-static) h2 {
+  font-size: 1.85em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 1.6em 0 0.9em;
+}
+:is(.milkdown .ProseMirror, .md-static) h3 { font-size: 1.4em; }
+:is(.milkdown .ProseMirror, .md-static) h4 { font-size: 1.15em; }
+:is(.milkdown .ProseMirror, .md-static) h5 { font-size: 1em; font-weight: 700; }
+:is(.milkdown .ProseMirror, .md-static) h6 { font-size: 1em; color: var(--md-muted); }
+:is(.milkdown .ProseMirror, .md-static) > :is(h1, h2):first-child { margin-top: 0.6em; }
+
+/* Links: deep red, underline only on hover. */
+:is(.milkdown .ProseMirror, .md-static) a { text-decoration: none; }
+:is(.milkdown .ProseMirror, .md-static) a:hover { text-decoration: underline; }
+
+/* Code: outlined, unfilled. */
+:is(.milkdown .ProseMirror, .md-static) code {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 0.05em 0.3em;
+}
+:is(.milkdown .ProseMirror, .md-static) pre {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+:is(.milkdown .ProseMirror, .md-static) pre code { border: 0; padding: 0; }
+.milkdown .milkdown-code-block { background: transparent; border: 1px solid #ccc; border-radius: 2px; }
+
+/* Quotes: hairline grey bar, soft grey text. */
+:is(.milkdown .ProseMirror, .md-static) blockquote {
+  border-left: 1px solid #888;
+  color: #6f6f6f;
+  background: transparent;
+  padding: 0.3em 1.1em;
+}
+
+/* Tables: horizontal rules only, bold header over a heavier rule. */
+:is(.milkdown .ProseMirror, .md-static) table { border: 0; }
+:is(.milkdown .ProseMirror, .md-static) :is(th, td) {
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  padding: 8px 14px;
+}
+:is(.milkdown .ProseMirror, .md-static) th {
+  font-weight: 700;
+  border-bottom: 2px solid #ccc;
+  vertical-align: bottom;
+}
+
+/* Rules: thin and quiet. */
+:is(.milkdown .ProseMirror, .md-static) hr { border-top: 1px solid #ccc; }
+
+/* Syntax colours: ink blue keywords, the theme's deep red for strings, quiet comments. */
+:root {
+  --md-syn-keyword: #1f3f99; --md-syn-string: #990000; --md-syn-number: #116644; --md-syn-comment: #707070;
+  --md-syn-definition: #0b5c8a; --md-syn-type: #6b3fa0; --md-syn-property: #7a3e00; --md-syn-variable: #7a3e00;
+}
