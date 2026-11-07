@@ -1,6 +1,6 @@
 [package]
 name = "markit"
-version = "0.2.0"
+version = "0.2.1"
 description = "A WYSIWYG Markdown editor"
 authors = ["bitzguild"]
 license = "MIT"
