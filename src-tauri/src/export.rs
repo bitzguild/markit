@@ -24,8 +24,8 @@ fn escape(s: &str) -> String {
     s.replace('&', "&amp;").replace('<', "&lt;").replace('>', "&gt;").replace('"', "&quot;")
 }
 
-pub fn render_html_document(markdown: &str, title: &str, css: &str) -> String {
-    let body = render_body(markdown);
+/// Wrap a rendered body (see `render_body`) in a standalone HTML document.
+pub fn render_html_document(body: &str, title: &str, css: &str) -> String {
     let has_math = body.contains("data-math-style");
     let math = if has_math {
         r#"
@@ -132,7 +132,7 @@ mod tests {
 
     #[test]
     fn document_wraps_body_and_escapes_title() {
-        let doc = render_html_document("hi", "<T>", "p{}");
+        let doc = render_html_document(&render_body("hi"), "<T>", "p{}");
         assert!(doc.contains("<title>&lt;T&gt;</title>"));
         assert!(doc.contains("<article class=\"md-static\">"));
         assert!(!doc.contains("katex"));

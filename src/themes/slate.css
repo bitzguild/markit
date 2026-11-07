@@ -9,3 +9,9 @@
   --md-font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
   --chrome-bg: #eef2f6; --chrome-fg: #475569; --chrome-border: #dbe2ea;
 }
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #7c3aed; --md-syn-string: #0f766e; --md-syn-number: #c2410c; --md-syn-comment: #94a3b8;
+  --md-syn-definition: #2563eb; --md-syn-type: #b45309; --md-syn-property: #be185d; --md-syn-variable: #be185d;
+}

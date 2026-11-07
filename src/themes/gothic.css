@@ -86,3 +86,9 @@
 
 /* Rules: thin and quiet. */
 :is(.milkdown .ProseMirror, .md-static) hr { border-top: 1px solid #ccc; }
+
+/* Syntax colours: ink blue keywords, the theme's deep red for strings, quiet comments. */
+:root {
+  --md-syn-keyword: #1f3f99; --md-syn-string: #990000; --md-syn-number: #116644; --md-syn-comment: #707070;
+  --md-syn-definition: #0b5c8a; --md-syn-type: #6b3fa0; --md-syn-property: #7a3e00; --md-syn-variable: #7a3e00;
+}

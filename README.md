@@ -11,7 +11,8 @@ an original implementation: no Typora code, styles or assets are used.
   ordered/unordered/task lists, and horizontal rules.
 - **Tables**: GFM tables with column alignment. Insert one with `⌥⌘T`, add rows and columns from the
   Paragraph ▸ Table menu, or use the in-editor table handles.
-- **Code fences**: CodeMirror editing with syntax highlighting and a language picker.
+- **Code fences**: CodeMirror editing with a language picker, and syntax highlighting coloured by the
+  theme, in the editor, print/PDF and HTML export alike.
 - **Math**: inline `$…$` and block `$$…$$`, rendered with KaTeX.
 - **Images**: relative and absolute local paths, URLs, drag-and-drop, Insert Image (`⇧⌘I`), and paste
   from the clipboard. Pasted and uploaded images are saved to `assets/` next to the document.
@@ -45,6 +46,8 @@ rest, so themes apply the same way in the editor, in print/PDF, and in HTML expo
   --md-font-body: Georgia, serif; --md-font-heading: var(--md-font-body); --md-font-mono: Menlo, monospace;
   --chrome-bg: #f7f7f8; --chrome-fg: #4b5563; --chrome-border: #e5e7eb;
   /* optional: --md-font-size, --md-line-height, --md-measure, --md-quote-bg, --md-table-stripe, --md-mark */
+  /* optional syntax colours: --md-syn-keyword, -string, -number, -comment, -definition, -type,
+     -property, -variable, -operator, -meta, -invalid */
   /* add `color-scheme: dark;` for dark themes (print then switches to a light palette) */
 }
 ```

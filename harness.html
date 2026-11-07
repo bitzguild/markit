@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <title>Markit harness</title>
     <script>
-      const DOC = new URL("examples/showcase.md", location.href).pathname;
+      const DOC = new URL(new URLSearchParams(location.search).get("doc") || "examples/showcase.md", location.href).pathname;
       window.__harness = { calls: [], writes: {} };
       let cb = 0;
       window.__TAURI_INTERNALS__ = {

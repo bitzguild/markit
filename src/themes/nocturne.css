@@ -10,3 +10,10 @@
   --chrome-bg: #181a1f; --chrome-fg: #9aa3ad; --chrome-border: #2b2f36;
   color-scheme: dark;
 }
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #c792ea; --md-syn-string: #c3e88d; --md-syn-number: #f78c6c; --md-syn-comment: #697282;
+  --md-syn-definition: #82aaff; --md-syn-type: #ffcb6b; --md-syn-property: #89ddff; --md-syn-variable: #f07178;
+  --md-syn-invalid: #ff5370;
+}

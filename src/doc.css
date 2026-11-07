@@ -126,6 +126,43 @@
 :is(.milkdown .ProseMirror, .md-static) th { background: var(--md-surface); font-weight: 650; }
 :is(.milkdown .ProseMirror, .md-static) tr:nth-child(even) td { background: var(--md-table-stripe, transparent); }
 
+/*
+ * Code blocks in the editor (CodeMirror inside Crepe): let the block's own
+ * background show through, and keep the gutter and active line quiet.
+ */
+.milkdown .milkdown-code-block .cm-editor,
+.milkdown .milkdown-code-block .cm-gutters { background: transparent; }
+.milkdown .milkdown-code-block .cm-scroller { font-family: var(--md-font-mono); line-height: 1.5; }
+.milkdown .milkdown-code-block .cm-content { color: var(--md-fg); }
+.milkdown .milkdown-code-block .cm-gutters { color: var(--md-muted); opacity: 0.6; border-right: none; }
+.milkdown .milkdown-code-block .cm-activeLine,
+.milkdown .milkdown-code-block .cm-activeLineGutter { background: transparent; }
+.milkdown .milkdown-code-block .cm-focused .cm-activeLine { background: var(--md-hover); }
+.milkdown .milkdown-code-block .cm-selectionBackground,
+.milkdown .milkdown-code-block .cm-focused .cm-selectionBackground { background: var(--md-selection) !important; }
+.milkdown .milkdown-code-block .cm-cursor { border-left-color: var(--md-fg); }
+
+/*
+ * Syntax highlighting: @lezer/highlight classHighlighter tokens, used by both the
+ * editor and the static render. Themes override the --md-syn-* variables.
+ */
+:is(.milkdown, .md-static) .tok-keyword,
+:is(.milkdown, .md-static) .tok-operator.tok-keyword { color: var(--md-syn-keyword, #a626a4); }
+:is(.milkdown, .md-static) :is(.tok-string, .tok-string2, .tok-url, .tok-inserted) { color: var(--md-syn-string, #50a14f); }
+:is(.milkdown, .md-static) :is(.tok-number, .tok-bool, .tok-atom, .tok-literal) { color: var(--md-syn-number, #986801); }
+:is(.milkdown, .md-static) .tok-comment { color: var(--md-syn-comment, #8a8f98); font-style: italic; }
+:is(.milkdown, .md-static) :is(.tok-definition, .tok-macroName, .tok-labelName) { color: var(--md-syn-definition, #4078f2); }
+:is(.milkdown, .md-static) :is(.tok-typeName, .tok-className, .tok-namespace) { color: var(--md-syn-type, #c18401); }
+:is(.milkdown, .md-static) .tok-propertyName { color: var(--md-syn-property, #e45649); }
+:is(.milkdown, .md-static) .tok-variableName2 { color: var(--md-syn-variable, #e45649); }
+:is(.milkdown, .md-static) :is(.tok-operator, .tok-punctuation) { color: var(--md-syn-operator, inherit); }
+:is(.milkdown, .md-static) .tok-meta { color: var(--md-syn-meta, var(--md-muted)); }
+:is(.milkdown, .md-static) :is(.tok-invalid, .tok-deleted) { color: var(--md-syn-invalid, #e45649); }
+:is(.milkdown, .md-static) .tok-heading { font-weight: 700; color: var(--md-syn-keyword, #a626a4); }
+:is(.milkdown, .md-static) .tok-emphasis { font-style: italic; }
+:is(.milkdown, .md-static) .tok-strong { font-weight: 700; }
+:is(.milkdown, .md-static) .tok-link { text-decoration: underline; }
+
 /* Export-only bits (comrak output) */
 :is(.milkdown .ProseMirror, .md-static) input[type="checkbox"] { margin-right: 0.4em; }
 :is(.milkdown .ProseMirror, .md-static) .footnotes { font-size: 0.9em; color: var(--md-muted); border-top: 1px solid var(--md-border); margin-top: 2em; }
@@ -136,6 +173,8 @@
 @media print {
   .milkdown, .md-static { background: #fff; }
   :is(.milkdown .ProseMirror, .md-static) { max-width: none; padding: 0; }
+  /* Paper can't scroll sideways: wrap long code lines. */
+  :is(.milkdown .ProseMirror, .md-static) pre { white-space: pre-wrap; overflow-wrap: anywhere; overflow-x: visible; }
   :is(.milkdown .ProseMirror, .md-static) pre,
   :is(.milkdown .ProseMirror, .md-static) table,
   :is(.milkdown .ProseMirror, .md-static) img,

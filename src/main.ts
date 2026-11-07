@@ -1,4 +1,6 @@
 import { Crepe } from "@milkdown/crepe";
+import { setCodeMirrorTheme } from "@milkdown/crepe/feature/code-mirror";
+import { codeBlockTheme, highlightStatic } from "./highlight";
 import { remarkStringifyOptionsCtx } from "@milkdown/kit/core";
 import "@milkdown/crepe/theme/common/style.css";
 import { callCommand, insert, replaceAll } from "@milkdown/kit/utils";
@@ -149,6 +151,9 @@ async function createEditor(markdown: string) {
       [Crepe.Feature.Placeholder]: { text: "Start writing…", mode: "doc" },
     },
   });
+  // Theme-aware token classes instead of Crepe's default One Dark (set here, not via
+  // featureConfigs, whose deep merge would splice One Dark's extensions into ours).
+  crepe.editor.config(setCodeMirrorTheme(codeBlockTheme));
   crepe.editor.config((ctx) => {
     ctx.update(remarkStringifyOptionsCtx, (prev) => ({ ...prev, bullet: "-" as const, rule: "-" as const, emphasis: "*" as const, strong: "*" as const, fence: "`" as const }));
   });
@@ -428,6 +433,7 @@ async function buildPrintView() {
   const inner = printView;
   printView.classList.toggle("print-light", /color-scheme:\s*dark/.test(themeCss(currentTheme)));
   inner.innerHTML = await invoke<string>("render_markdown", { markdown: currentMarkdown() });
+  await highlightStatic(inner);
   inner.querySelectorAll<HTMLElement>("[data-math-style]").forEach((el) => {
     try {
       katex.render(el.textContent ?? "", el, { displayMode: el.dataset.mathStyle === "display", throwOnError: false });
@@ -454,8 +460,14 @@ async function exportHtml(withTheme = true) {
   if (!path) return;
   const css = withTheme ? `${docCss}\n${themeCss(currentTheme)}` : "";
   try {
+    const markdown = currentMarkdown();
+    // Highlight code here (Rust has no grammars); math stays as source for the page's KaTeX.
+    const scratch = document.createElement("div");
+    scratch.innerHTML = await invoke<string>("render_markdown", { markdown });
+    await highlightStatic(scratch);
     await invoke("export_html", {
-      markdown: currentMarkdown(),
+      markdown,
+      body: scratch.innerHTML,
       title: docPath ? basename(docPath).replace(/\.[^.]+$/, "") : "Untitled",
       css,
       path,

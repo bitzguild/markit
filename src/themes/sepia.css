@@ -11,3 +11,9 @@
   --md-font-size: 17px; --md-line-height: 1.72; --md-measure: 760px;
   --chrome-bg: #efe6d4; --chrome-fg: #6b5a46; --chrome-border: #dccbad;
 }
+
+/* Syntax colours (see doc.css) */
+:root {
+  --md-syn-keyword: #8c3b6e; --md-syn-string: #5f7a1f; --md-syn-number: #a5520f; --md-syn-comment: #a39279;
+  --md-syn-definition: #2f5f8a; --md-syn-type: #8a6a10; --md-syn-property: #9a4f12; --md-syn-variable: #9a4f12;
+}

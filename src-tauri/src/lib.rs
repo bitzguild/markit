@@ -276,8 +276,10 @@ fn reveal_dir(dir: &Path) {
 // ------------------------------------------------------------------ export & print
 
 #[tauri::command]
-fn export_html(markdown: String, title: String, css: String, path: String) -> Result<(), String> {
-    let html = export::render_html_document(&markdown, &title, &css);
+fn export_html(markdown: String, body: Option<String>, title: String, css: String, path: String) -> Result<(), String> {
+    // The frontend sends a syntax-highlighted body; fall back to a plain render.
+    let body = body.unwrap_or_else(|| export::render_body(&markdown));
+    let html = export::render_html_document(&body, &title, &css);
     write_atomic(Path::new(&path), html.as_bytes())
 }
 

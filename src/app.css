@@ -96,6 +96,10 @@ body.focus-mode .milkdown .ProseMirror > .md-focused { opacity: 1; }
   --md-surface: #f6f8fa; --md-surface-low: #eaeef2; --md-border: #d0d7de; --md-border-soft: #e5e9ee;
   --md-link: #0969da; --md-code-fg: #b42318; --md-code-bg: #f3f4f6; --md-table-stripe: #fafbfc;
   --md-quote-bg: transparent; --md-mark: #fff2a8;
+  /* back to doc.css's light syntax colours */
+  --md-syn-keyword: initial; --md-syn-string: initial; --md-syn-number: initial; --md-syn-comment: initial;
+  --md-syn-definition: initial; --md-syn-type: initial; --md-syn-property: initial; --md-syn-variable: initial;
+  --md-syn-operator: initial; --md-syn-meta: initial; --md-syn-invalid: initial;
 }
 
 @media print {
